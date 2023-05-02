@@ -1,0 +1,320 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/v1/tkquestionpost/post/": {
+            "get": {
+                "description": "Lấy danh sách bài biết của người dùng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "post"
+                ],
+                "summary": "Lấy danh sách bài biết của người dùng",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "session key",
+                        "name": "sessionkey",
+                        "in": "header"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pos",
+                        "name": "pos",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "count",
+                        "name": "count",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responses.ResponseCommonSingle"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "not"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/tkquestionpost/post/post-guild/": {
+            "get": {
+                "description": "Lấy danh sách bài biết của người dùng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "post"
+                ],
+                "summary": "Lấy danh sách bài biết của người dùng",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "session key",
+                        "name": "sessionkey",
+                        "in": "header"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "pos",
+                        "name": "pos",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "count",
+                        "name": "count",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responses.ResponseCommonSingle"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "not"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/tkquestionpost/post/{id}": {
+            "get": {
+                "description": "Lấy bài biết của người dùng",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "post"
+                ],
+                "summary": "Lấy bài biết của người dùng",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "session key",
+                        "name": "sessionkey",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responses.ResponseCommonSingle"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "not"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/tkquestionpost/user/login": {
+            "post": {
+                "description": "Đăng nhập bằng metamark",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Đăng nhập bằng metamark",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/requestbody.UserSignRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responses.ResponseCommonSingle"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "not"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/tkquestionpost/user/logout": {
+            "post": {
+                "description": "Đăng xuất",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Đăng xuất",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "session key",
+                        "name": "sessionkey",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/responses.ResponseCommonSingle"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "type": "not"
+                        }
+                    }
+                }
+            }
+        },
+        "/x/ping": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    },
+                    {
+                        "BasicAuth": []
+                    }
+                ],
+                "description": "返回 server 相关信息，可以用于健康检查",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "x"
+                ],
+                "summary": "默认的 Ping 接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "you can set custom trace id in header",
+                        "name": "trace_id",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "requestbody.UserSignRequest": {
+            "type": "object",
+            "properties": {
+                "app": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "pubkey": {
+                    "type": "string"
+                },
+                "sig": {
+                    "type": "string"
+                }
+            }
+        },
+        "response.Response": {
+            "type": "object",
+            "properties": {
+                "code": {},
+                "data": {},
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "responses.Err": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "code error",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "description error",
+                    "type": "string"
+                }
+            }
+        },
+        "responses.ResponseCommonSingle": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "error": {
+                    "$ref": "#/definitions/responses.Err"
+                }
+            }
+        }
+    }
+}

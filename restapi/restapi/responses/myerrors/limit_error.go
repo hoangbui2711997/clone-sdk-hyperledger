@@ -1,0 +1,31 @@
+package myerrors
+
+import "errors"
+
+var (
+	LIMIT_WITHDRAWAL_ERROR              = errors.New("Rút tiền vượt quá giới hạn")
+	BLOCK_CHAIN_ADDRESS_NOT_EXIST_ERROR = errors.New("Địa chỉ blockchain không tồn tại")
+	BLOCK_CHAIN_ADDRESS_INVALID         = errors.New("Địa chỉ blockchain không hợp lệ")
+	INVALID_CHAIN                       = errors.New("Chain không hợp lệ")
+	ITEM_NOT_EXIST                      = errors.New("Dữ liệu không tồn tại")
+	TRANSFER_BLOCKED                    = errors.New("Tài khoản đã bị khóa thao tác chuyển tiền")
+	ITEM_EXISTED                        = errors.New("Dữ liệu đã tồn tại")
+	BALANCE_INSUFFICIENT_ERROR          = errors.New("Số dư không đủ")
+	UPDATE_BALANCE_FAILED               = errors.New("Cập nhập số dư thất bại")
+	INVALID_ID                          = errors.New("Mã định danh không hợp lệ")
+	INVALID_AMOUNT                      = errors.New("Số lượng không hợp lệ")
+	TIME_LESS_THAN_NOW                  = errors.New("Không đặt thời gian nhỏ hơn thời gian hiện tại")
+	PUBKEY_INVALID_ERROR                = errors.New("Pubkey không hợp lệ")
+	LEVEL_SECURITY_ERROR                = errors.New("LEVEL_SECURITY_ERROR")
+	LIMIT_NOT_EXISTED                   = errors.New("LIMIT_NOT_EXISTED")
+	USER_INFO_EMPTY                     = errors.New("USER_INFO_EMPTY")
+	TIME_SET_INVALID                    = errors.New("Không đặt thời gian nhỏ hơn thời gian hiện tại")
+	ADDRESS_POOL_EMPTY                  = errors.New("ADDRESS_POOL_EMPTY")
+	COIN_NOT_EXIST                      = errors.New("COIN_NOT_EXIST")
+	TRANSFER_FAILED                     = errors.New("Giao dịch thất bại")
+	PRIVATE_KEY_INVALID                 = errors.New("Mã bí mật không hợp lệ")
+	PUBKEY_NOT_EXIST_ERROR              = errors.New("Pubkey không tồn tại")
+	COIN_LOCKED                         = errors.New("Tài khoản của bạn bị khóa vì đang trong thời gian đầu tư")
+	CANCEL_ALL_INPROGRESS               = errors.New("CANCEL_ALL_INPROGRESS")
+	TIME_INVALID                        = errors.New("Thời gian nhập không hợp lệ")
+)

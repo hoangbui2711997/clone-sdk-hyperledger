@@ -1,0 +1,206 @@
+definitions:
+  requestbody.UserSignRequest:
+    properties:
+      app:
+        type: string
+      created_at:
+        type: integer
+      message:
+        type: string
+      pubkey:
+        type: string
+      sig:
+        type: string
+    type: object
+  response.Response:
+    properties:
+      code: {}
+      data: {}
+      msg:
+        type: string
+    type: object
+  responses.Err:
+    properties:
+      code:
+        description: code error
+        type: integer
+      message:
+        description: description error
+        type: string
+    type: object
+  responses.ResponseCommonSingle:
+    properties:
+      data: {}
+      error:
+        $ref: '#/definitions/responses.Err'
+    type: object
+info:
+  contact: {}
+paths:
+  /v1/tkquestionpost/post/:
+    get:
+      consumes:
+      - application/json
+      description: Lấy danh sách bài biết của người dùng
+      parameters:
+      - description: session key
+        in: header
+        name: sessionkey
+        type: string
+      - description: pos
+        in: query
+        name: pos
+        type: integer
+      - description: count
+        in: query
+        name: count
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Lấy danh sách bài biết của người dùng
+      tags:
+      - post
+  /v1/tkquestionpost/post/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Lấy bài biết của người dùng
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: session key
+        in: header
+        name: sessionkey
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Lấy bài biết của người dùng
+      tags:
+      - post
+  /v1/tkquestionpost/post/post-guild/:
+    get:
+      consumes:
+      - application/json
+      description: Lấy danh sách bài biết của người dùng
+      parameters:
+      - description: session key
+        in: header
+        name: sessionkey
+        type: string
+      - description: pos
+        in: query
+        name: pos
+        type: integer
+      - description: count
+        in: query
+        name: count
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Lấy danh sách bài biết của người dùng
+      tags:
+      - post
+  /v1/tkquestionpost/user/login:
+    post:
+      consumes:
+      - application/json
+      description: Đăng nhập bằng metamark
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/requestbody.UserSignRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Đăng nhập bằng metamark
+      tags:
+      - user
+  /v1/tkquestionpost/user/logout:
+    post:
+      consumes:
+      - application/json
+      description: Đăng xuất
+      parameters:
+      - description: session key
+        in: header
+        name: sessionkey
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Đăng xuất
+      tags:
+      - user
+  /x/ping:
+    get:
+      consumes:
+      - application/json
+      description: 返回 server 相关信息，可以用于健康检查
+      parameters:
+      - description: you can set custom trace id in header
+        in: header
+        name: trace_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      - BasicAuth: []
+      summary: 默认的 Ping 接口
+      tags:
+      - x
+swagger: "2.0"

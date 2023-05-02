@@ -1,0 +1,75 @@
+env = "localhost"
+
+[apidocs]
+  basepath = "/v1/hyperledger/"
+  desc = "Using pink-lady to develop gin app on fly."
+  host = "localhost:4869"
+  schemes = ["http"]
+  title = "pink-lady swagger apidocs"
+
+[basic_auth]
+  password = "admin"
+  username = "admin"
+[i18n]
+  domain = "messages"
+  enable = false
+  path = "statics/i18n"
+
+[logging]
+  disable_caller = false
+  disable_stacktrace = true
+  format = "json"
+  level = "debug"
+  output_paths = ["stdout"]
+
+  [logging.access_logger]
+    enable_context_keys = false
+    enable_details = false
+    enable_request_body = true
+    enable_request_form = false
+    enable_request_header = false
+    enable_response_body = false
+    skip_path_regexps = ["/x/apidocs/.+\\.json","/x/apidocs/.+\\.js","/x/apidocs/.+\\.css"]
+    skip_paths = []
+    slow_threshold = 200
+
+  [logging.atomic_level_server]
+    addr = ":4870"
+    path = "/"
+
+  [logging.logrotate]
+    compress = true
+    localtime = true
+    max_age = 30
+    max_backups = 10
+    max_size = 100
+
+[mysql]
+
+  [mysql.localhost]
+
+    [mysql.localhost.dbname]
+      dsn = "user:pwd@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=UTC"
+
+  [mysql.other]
+
+    [mysql.other.dbname]
+      dsn = ""
+
+[ratelimiter]
+  enable = false
+  type = "mem"
+
+[sentry]
+  debug = true
+  dsn = ""
+
+[server]
+  addr = ":4869"
+  metrics = true
+  mode = "debug"
+  pprof = true
+
+[statics]
+  tmpl_path = "html/*"
+  url = "/statics"

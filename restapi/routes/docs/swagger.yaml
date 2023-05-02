@@ -1,0 +1,109 @@
+definitions:
+  responses.Err:
+    properties:
+      code:
+        description: code error
+        type: integer
+      message:
+        description: description error
+        type: string
+    type: object
+  responses.ResponseCommonSingle:
+    properties:
+      data: {}
+      error:
+        $ref: '#/definitions/responses.Err'
+    type: object
+info:
+  contact:
+    email: 254606826@qq.com
+    name: API Support
+    url: http://tkwallet
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /erc20/mint:
+    post:
+      consumes:
+      - application/json
+      description: Mint ERC20
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Mint ERC20
+      tags:
+      - erc20
+  /erc20/transfer:
+    post:
+      consumes:
+      - application/json
+      description: Transfer ERC20
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Transfer ERC20
+      tags:
+      - erc20
+  /erc721/mint:
+    post:
+      consumes:
+      - application/json
+      description: Mint
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Mint
+      tags:
+      - erc721
+  /erc721/transfer:
+    post:
+      consumes:
+      - application/json
+      description: Transfer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseCommonSingle'
+        "403":
+          description: Forbidden
+          schema:
+            type: not
+      summary: Transfer
+      tags:
+      - erc721
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: apikey
+    type: apiKey
+  BasicAuth:
+    type: basic
+swagger: "2.0"
