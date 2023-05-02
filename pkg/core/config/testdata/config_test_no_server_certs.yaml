@@ -313,7 +313,7 @@ peers:
     tlsCACerts:
 
   peer0.org2.example.com:
-    url: peer0.org2.example.com:8051
+    url: peer0.org2.example.com:9051
     #TODO to be moved to high level, common for all grpc connections
     grpcOptions:
       ssl-target-name-override: peer0.org2.example.com

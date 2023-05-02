@@ -455,7 +455,7 @@ peers:
       path: ${FABRIC_SDK_GO_PROJECT_PATH}/${CRYPTOCONFIG_FIXTURES_PATH}/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
 
   local.peer0.org2.example.com:
-    url: peer0.org2.example.com:8051
+    url: peer0.org2.example.com:9051
 
     grpcOptions:
       ssl-target-name-override: peer0.org2.example.com
@@ -536,7 +536,7 @@ entityMatchers:
       mappedHost: local.peer0.org1.example.com
 
     - pattern: (\w+).org2.example.(\w+)
-      urlSubstitutionExp: peer0.org2.example.com:8051
+      urlSubstitutionExp: peer0.org2.example.com:9051
       sslTargetOverrideUrlSubstitutionExp: peer0.org2.example.com
       mappedHost: local.peer0.org2.example.com
 

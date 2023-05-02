@@ -52,7 +52,6 @@ CsbWERvZPjR/GFEDEvc=
 -----END CERTIFICATE-----`
 
 func TestStore(t *testing.T) {
-
 	cleanupTestPath(t, storePathRoot)
 	defer cleanupTestPath(t, storePathRoot)
 

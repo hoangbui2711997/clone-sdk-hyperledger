@@ -31,7 +31,7 @@ entityMatchers:
       mappedHost: peer1.org1.example.com
 
     - pattern: peer0.org2.example.(\w+)
-      urlSubstitutionExp: localhost:8051
+      urlSubstitutionExp: localhost:9051
       sslTargetOverrideUrlSubstitutionExp: peer0.org2.example.com
       mappedHost: peer0.org2.example.com
 
@@ -60,8 +60,8 @@ entityMatchers:
       sslTargetOverrideUrlSubstitutionExp: peer1.org1.example.com
       mappedHost: peer1.org1.example.com
 
-    - pattern: (\w+):8051
-      urlSubstitutionExp: localhost:8051
+    - pattern: (\w+):9051
+      urlSubstitutionExp: localhost:9051
       sslTargetOverrideUrlSubstitutionExp: peer0.org2.example.com
       mappedHost: peer0.org2.example.com
 
